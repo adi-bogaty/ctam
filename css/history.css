@@ -1,0 +1,698 @@
+/* PARALLAX SCROLLING EXPERIMENT
+   Master Styles
+   Author: Jonathan Nicol (f6design.com)
+*****************************************************************/
+
+
+/* Global reset
+   http://meyerweb.com/eric/tools/css/reset/ 
+*****************************************************************/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Extended base styles (site specific)
+*****************************************************************/
+
+html { 
+	overflow-y: scroll; /* always force a scrollbar in non-IE */
+	}
+body {
+	background: url("../img/history/front-long-tr.png") no-repeat #e3e5e5;
+	background-position: center bottom;
+	background-size: contain;
+	overflow-x: hidden;
+	height: 8300px;
+	line-height: 1.5;
+	color: #000;
+	font-size: 14px;
+	font-family: Arial,sans-serif;
+}
+#wrapper h1 {
+	color: #000; /* COLOR TO CHANGE */
+	/*text-shadow: #000000 0 0 .5px;*/
+}
+#wrapper a,
+#wrapper a:link,
+#wrapper a:active,
+#wrapper a:visited {
+	-webkit-transition: color 0.25s ease-out;
+	-moz-transition: color 0.25s ease-out;
+	-o-transition: color 0.25s ease-out;
+	transition: color 0.25s ease-out;
+	color:#000; /* COLOR TO CHANGE */
+	outline: none;
+	text-decoration:none;
+	}
+	a:hover { 
+		color:#000;
+		}
+img { 
+	display:block;
+	}
+p {
+	margin:1em 0;
+	}
+
+/* Common shared styles
+*****************************************************************/
+
+hr {
+	margin: 0;
+	border: none;
+	border-top: 1px solid #3b3b3b;
+	border-bottom: 1px solid #3b3b3b;
+	height: 3px;
+}
+
+/* Page structure
+*****************************************************************/
+
+#wrapper {
+	position: relative;
+}
+#branding {
+	width: 100%;
+	background: #fff;
+	}
+	#branding h1 {
+		width: 940px;
+		padding: 10px 15px;
+		margin: 0 auto;
+		text-transform: uppercase;
+		font-size: 18px;
+		font-weight: bold;
+		}
+
+/* Nav
+*****************************************************************/
+
+nav#primary {
+	z-index: 15;
+	position: fixed;
+	top: 50%;
+	right: 16px;
+	margin-top: -40px;
+}
+nav#primary li {
+	position: relative;
+	height: 20px;
+}
+nav#primary a {
+	display: block;
+	width: 20px;
+	height: 20px;
+	text-indent: -9999px;
+	background: transparent url('../img/history/nav-dot.png') 4px 4px no-repeat;
+}
+nav#primary a:hover, nav#primary a.active {
+	background: transparent url('../img/history/nav-dot.png') 4px -16px no-repeat;
+}
+nav#primary h1 {
+	position: absolute;
+	right: 22px;
+	top: -7px;
+	display: none;
+	padding: 4px 20px 4px 7px;;
+	color: #fff;
+	white-space: nowrap;
+	background: transparent url('../img/history/nav-arrow.png') 100% 50% no-repeat;
+	}
+nav.next-prev {
+	margin: 20px 0 0 0;
+	}
+	a.prev,
+	a.next {
+		display: block;
+		width: 15px;
+		height: 11px;
+		text-indent: -9999px;
+		}
+	a.prev {
+		margin: 0 auto 5px auto;
+		background: transparent url('../img/history/scroll-arrow-up.png') 0 0 no-repeat;
+		}
+		a.prev:hover {
+			background: transparent url('../img/history/scroll-arrow-up.png') 0 -11px no-repeat;
+			}
+	a.next {
+		margin: 5px auto 0 auto;
+		background: transparent url('../img/history/scroll-arrow-down.png') -1px 0 no-repeat;
+		}
+		a.next:hover {
+			background: transparent url('../img/history/scroll-arrow-down.png') -1px -11px no-repeat;
+			}
+
+/* Parallax
+*****************************************************************/
+
+/* content */
+#content {
+	z-index: 4;
+	position: relative;
+	max-width: 1080px;
+	padding: 0 10px;
+	margin: 0 auto;
+	line-height: 1.7;
+	text-align: justify;
+	}
+	#content header {
+		text-align: left;
+	}
+
+	#content article {
+		width: 470px;
+		}
+
+		#manned-flight ,
+		#frameless-parachute,
+		#english-channel,
+		#after-WWII,
+		#new-building,
+		#ctam-today {
+			padding-top: 105px;
+			}
+		#manned-flight {
+			padding-top: 50px;
+			position: absolute;
+			top: 0px;
+			}
+		#NI_title {
+			font-style: italic;
+			width: 200px;
+			position: absolute;
+			right: 0px;
+			text-align: right;
+		}
+		#content article#frameless-parachute {
+			width: 530px;
+		}
+
+		#frameless-parachute {
+			padding-top: 70px;
+			position: absolute;
+			top: 1250px;
+			}
+		#english-channel {
+			position: absolute;
+			top: 3120px;
+			}
+			#content h1 {
+				margin: 0 0 25px 0;
+				font-size: 60px;
+				font-family: Georgia, serif;
+				font-weight: normal;
+				line-height: 65px;
+				}
+		#after-WWII {
+			padding-top: 30px;
+			position: absolute;
+			top: 4530px;
+		}
+		#new-building {
+			padding-top: 35px;
+			position: absolute;
+			top: 6200px;
+		}
+		#ctam-today {
+			position: absolute;
+			top: 7010px;
+		}
+
+/* foreground (ballons/landscape) */
+#parallax-bg3 {
+	z-index: 3;
+	position: fixed;
+	left: 50%; /* align left edge with center of viewport */
+	top: 0;
+	width: 940px;
+	margin-left: -470px; /* move left by half element's width */
+	}
+	/* balloon */
+	#bg3-1 {
+		position: absolute;
+		top: -70px;
+		left: 485px;
+		}
+	#bg3-2 {
+		position: absolute;
+		top: 1258px;
+		left: 470px;
+		}
+	#bg3-3 {
+		position: absolute;
+		top: 2628px;
+		left: 410px;
+		border-bottom: 3px #000 double;
+		}
+	#bg3-4 {
+		position: absolute;
+		top: 3700px;
+		left: 450px;
+		}
+	#bg3-5 {
+		position: absolute;
+		top: 5000px;
+		left: 440px;
+		border: 5px #000 solid;
+		}
+/* midground (clouds) */
+#parallax-bg2 {
+	z-index: 2;
+	position: fixed;
+	left: 50%; /* align left edge with center of viewport */
+	top: 0;
+	width: 1200px;
+	margin-left: -600px; /* move left by half element's width */
+	}
+	#bg2-1 {
+		position: absolute;
+		top: 162px;
+		left: 200px;
+		}
+	#bg2-2 {
+		position: absolute;
+		top: 300px;
+		left: 1150px;
+		}
+	#bg2-3 {
+		position: absolute;
+		top: 543px;
+		left: -35px;
+		}
+	#bg2-4 {
+		position: absolute;
+		top: 1180px;
+		left: 250px;
+		}
+	#bg2-5 {
+		position: absolute;
+		top: 900px;
+		left: 890px;
+		}
+
+	#bg2-6 {
+		position: absolute;
+		top: 1900px;
+		left: 890px;
+		}
+	#bg2-7 {
+		position: absolute;
+		top: 2300px;
+		left: 500px;
+		}
+	#bg2-8 {
+		position: absolute;
+		top: 2500px;
+		left: -250px;
+		}
+	#bg2-9 {
+		position: absolute;
+		top: 3000px;
+		left: 200px;
+		}
+
+/* background (clouds) */
+#parallax-bg1 {
+	z-index: 1;
+	position: fixed;
+	left: 50%; /* align left edge with center of viewport */
+	top: 0;
+	width: 1200px;
+	margin-left: -600px; /* move left by half element's width */
+	}
+	#bg1-1 {
+		position: absolute;
+		top: 85px;
+		left: -270px;
+		}
+	#bg1-2 {
+		position: absolute;
+		top: 440px;
+		left: 795px;
+		}
+	#bg1-3 {
+		position: absolute;
+		top: 900px;
+		left: -220px;
+		}
+	#bg1-4 {
+		position: absolute;
+		top: 1020px;
+		left: 450px;
+		}
+
+	#bg1-5 {
+		position: absolute;
+		top: 1700px;
+		left: -200px;
+		}
+	#bg1-6 {
+		position: absolute;
+		top: 1670px;
+		left: 475px;
+		}
+	#bg1-7 {
+		position: absolute;
+		top: 1500px;
+		left: 820px;
+		}
+
+/* *************************************************** */
+/* ******************* FZU GALLERY ******************* */
+/* *************************************************** */
+input, textarea {
+	margin: 0;
+	padding: 0;
+}
+
+.ie7 body{
+	overflow:hidden;
+}
+
+a{
+	color: #333;
+	text-decoration: none;
+}
+
+.h-glr-container{
+	position: relative;
+	text-align: center;
+}
+.clr{
+	clear: both;
+}
+
+.lb-album{
+	width: 900px;
+	margin: 0 auto;
+	font-family: 'Trebuchet MS', 'Arial Narrow', Arial, sans-serif;
+}
+.lb-album li{
+	float: right;
+	margin: 5px;
+	position: relative;
+}
+.lb-album li > a,
+.lb-album li > a img{
+	display: block;
+}
+.lb-album li > a{
+	width: 150px;
+	height: 150px;
+	position: relative;
+	padding: 10px;
+	background: #003153;
+	-webkit-box-shadow: 1px 1px 2px #000, 1px 1px 2px rgba(0,76,138,0.3) inset;
+	-moz-box-shadow: 1px 1px 2px #000, 1px 1px 2px rgba(0,76,138,0.3) inset;
+	box-shadow: 1px 1px 2px #000, 1px 1px 2px rgba(0,76,138,0.3) inset;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px 4px 4px 4px;
+}
+
+.lb-album li a.img-long {
+	width: 330px;
+}
+
+.lb-album li a span.img-long {
+	width: 330px;
+}
+
+.lb-album li > a span{
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	top: 10px;
+	left: 10px;
+	text-align: center;
+	line-height: 150px;
+	color: rgba(27,54,81,0.8);
+	text-shadow: 0px 1px 1px rgba(0,76,138,0.6);
+	font-size: 24px;
+	opacity: 0;
+	filter: alpha(opacity=0); /* internet explorer */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=0)"; /*IE8*/
+	background: rgb(241,210,194);
+	background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%, rgba(211,222,237,1) 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,0.56)), color-stop(100%,rgba(211,222,237,1)));
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(211,222,237,1) 100%);
+	background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(211,222,237,1) 100%);
+	background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(211,222,237,1) 100%);
+	background: radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(211,222,237,1) 100%);
+	-webkit-transition: opacity 0.3s linear;
+	-moz-transition: opacity 0.3s linear;
+	-o-transition: opacity 0.3s linear;
+	-ms-transition: opacity 0.3s linear;
+	transition: opacity 0.3s linear;
+}
+.lb-album li > a:hover span{
+	opacity: 1;
+	filter: alpha(opacity=99); /* internet explorer */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=99)"; /*IE8*/
+}
+.lb-overlay{
+	width: 0px;
+	height: 0px;
+	position: fixed;
+	overflow: hidden;
+	left: 0px;
+	top: 0px;
+	padding: 0px;
+	z-index: 99;
+	text-align: center;
+	background: rgb(241,210,194);
+	background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%, rgba(211,222,237,1) 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,0.56)), color-stop(100%,rgba(211,222,237,1)));
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(211,222,237,1) 100%);
+	background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(211,222,237,1) 100%);
+	background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(211,222,237,1) 100%);
+	background: radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,rgba(211,222,237,1) 100%);
+}
+.lb-overlay > div{
+	position: relative;
+	color: rgba(0, 0, 0, 0.8);
+	/*color: rgba(27,54,81,0.8);*/ /*
+	opacity: 0;
+	filter: alpha(opacity=0); |* internet explorer *|
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=0)"; |*IE8*|
+	width: 550px;
+	margin: 10px auto 0px auto;
+	text-shadow: 0px 1px 1px rgba(255,255,255,0.6);
+	-webkit-transition: opacity 0.3s linear 1.3s;
+	-moz-transition: opacity 0.3s linear 1.3s;
+	-o-transition: opacity 0.3s linear 1.3s;
+	-ms-transition: opacity 0.3s linear 1.3s;
+	transition: opacity 0.3s linear 1.3s;
+-------------------------
+	and delete next endian*/
+	width: 550px;
+	height: 80px;
+	margin: 40px auto 0px auto;
+	text-shadow: 0px 1px 1px rgba(255,255,255,0.6);
+}
+.lb-overlay div h3,
+.lb-overlay div p{
+	padding: 0px 20px;
+	width: 200px;
+	height: 60px;
+	/*border: 2px green solid;*/
+}
+.lb-overlay div h3{
+	font-size: 30px;
+	float: left;
+	line-height: 25px;
+	text-align: right;
+	border-right: 1px solid rgba(27,54,81,0.4);
+}
+.lb-overlay div h3 span,
+.lb-overlay div p{
+	font-size: 16px;
+	font-family: "Trebuchet MS", Georgia, serif;
+	font-style: italic;
+}
+.lb-overlay div h3 span{
+	display: block;
+	line-height: 6px;
+}
+.lb-overlay div p{
+	margin-top: 0;
+	font-size: 14px;
+	text-align: left;
+	float: left;
+	width: 260px;
+}
+.lb-overlay a.lb-close{
+	padding: 0 7px 2px 7px;
+	background: rgba(27,54,81,0.8);
+	z-index: 1001;
+	color: #fff;
+	position: absolute;
+	top: 43px;
+	left: 50%;
+	font-size: 15px;
+	line-height: 26px;
+	text-align: center;
+	width: 50px;
+	height: 23px;
+	overflow: hidden;
+	margin-left: -25px;
+	opacity: 0;
+	filter: alpha(opacity=0); /* internet explorer */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=0)"; /*IE8*/
+	-webkit-box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+	box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+	/*
+	-webkit-transition: opacity 0.3s linear 1.2s;
+	-moz-transition: opacity 0.3s linear 1.2s;
+	-o-transition: opacity 0.3s linear 1.2s;
+	-ms-transition: opacity 0.3s linear 1.2s;
+	transition: opacity 0.3s linear 1.2s;
+	*/
+}
+.lb-overlay img{
+	/* height: 100%; For Opera max-height does not seem to work */
+	max-height: 100%;
+	margin: 0 auto;
+	position: relative; /* -webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+	-moz-box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+	box-shadow: 0px 2px 7px rgba(0,0,0,0.2);
+-----------------------
+	Delete next endian*/
+	opacity: 0;
+	filter: alpha(opacity=0); /* internet explorer */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=0)"; /*IE8*/
+	-webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+	-moz-box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+	box-shadow: 0px 2px 7px rgba(0,0,0,0.2);
+	-webkit-transition: opacity 0.5s linear;
+	-moz-transition: opacity 0.5s linear;
+	-o-transition: opacity 0.5s linear;
+	-ms-transition: opacity 0.5s linear;
+	transition: opacity 0.5s linear;
+}
+.lb-prev, .lb-next{
+	text-indent: -9000px;
+	position: absolute;
+	top: -32px;
+	width: 24px;
+	height: 25px;
+	left: 50%;
+	opacity: 0.8;
+	filter: alpha(opacity=80); /* internet explorer */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=80)"; /*IE8*/
+}
+.lb-prev:hover, .lb-next:hover{
+	opacity: 1;
+	filter: alpha(opacity=99); /* internet explorer */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=99)"; /*IE8*/
+}
+.lb-prev{
+	margin-left: -30px;
+	background: transparent url(../img/history/arrows.png) no-repeat top left;
+}
+.lb-next{
+	margin-left: 6px;
+	background: transparent url(../img/history/arrows.png) no-repeat top right;
+}
+.lb-overlay:target {
+	width: auto;
+	height: auto;
+	bottom: 0px;
+	right: 0px;
+	padding: 80px 100px 120px 100px;
+}
+/* delete below and change it into this:
+.lb-overlay:target img {
+	-webkit-animation: fadeInScale 1.2s ease-in-out;
+	-moz-animation: fadeInScale 1.2s ease-in-out;
+	-o-animation: fadeInScale 1.2s ease-in-out;
+	-ms-animation: fadeInScale 1.2s ease-in-out;
+	animation: fadeInScale 1.2s ease-in-out;
+}
+.lb-overlay:target a.lb-close,
+.lb-overlay:target > div{
+	opacity: 1;
+	filter: alpha(opacity=99); |* internet explorer *|
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=99)"; |*IE8*|
+}
+@-webkit-keyframes fadeInScale {
+  0% { -webkit-transform: scale(0.6); opacity: 0; }
+  100% { -webkit-transform: scale(1); opacity: 1; }
+}
+@-moz-keyframes fadeInScale {
+  0% { -moz-transform: scale(0.6); opacity: 0; }
+  100% { -moz-transform: scale(1); opacity: 1; }
+}
+@-o-keyframes fadeInScale {
+  0% { -o-transform: scale(0.6); opacity: 0; }
+  100% { -o-transform: scale(1); opacity: 1; }
+}
+@-ms-keyframes fadeInScale {
+  0% { -ms-transform: scale(0.6); opacity: 0; }
+  100% { -ms-transform: scale(1); opacity: 1; }
+}
+@keyframes fadeInScale {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+*/
+.lb-overlay:target img,
+.lb-overlay:target a.lb-close{
+	opacity: 1;
+	filter: alpha(opacity=99); /* internet explorer */
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=99)"; /*IE8*/
+}
+/* 
+	100% Height for Opera as the max-height seems to be ignored, not optimal for large screens 
+	http://bricss.net/post/11230266445/css-hack-to-target-opera 
+*/
+x:-o-prefocus, .lb-overlay img {
+    height: 100%;
+}
+
+/* *************************************************** */
+/* *************** END FZU GALLERY ******************* */
+/* *************************************************** */

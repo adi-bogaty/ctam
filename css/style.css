@@ -1,0 +1,718 @@
+body {
+	min-width: 1240px;
+	margin: 0;
+	padding: 0;
+	color: #000;
+	background-color: #fff;
+}
+
+.container {
+	width: 1080px;
+	margin: 0 auto;
+	padding: 0 40px;
+	/*border: 1px green solid;*/
+}
+
+.main-header {
+	padding-top: 5px;
+	padding-bottom: 10px;
+	background-color: #000;
+	background-image: url("../img/front_long1.jpg");
+	background-position: center 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.header-logo {
+	width: 200px;
+	height: 101px;
+	float: right;
+	/*border: 2px green solid;*/
+}
+
+/* -------------- REGISTRATION / LOG IN --------------*/
+
+.reg-bg p {
+	display: inline-block;
+	font-family: "Trebuchet MS";
+	font-size: 16px;
+	color: #fff;
+	margin: 0;
+	margin-top: 10px;
+}
+
+.reg-bg p:first-child {
+	border-right: 3px #e6e6e6 outset;
+	padding: 5px 13px 5px 9px;
+}
+
+.reg-bg p:last-child {
+	padding: 5px 14px 5px 14px;
+}
+
+.reg-bg {
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 6px 5px 5px 5px;
+}
+
+.reg-bg a {
+	color: #fff;
+	text-decoration: none;
+	-moz-transition: color 0.3s, font-weight 0.3s;
+    -o-transition: color 0.3s, font-weight 0.3s;
+    -webkit-transition: color 0.3s, font-weight 0.3s;
+    transition: color 0.3s, font-weight 0.3s;
+}
+
+.reg-bg a:hover {
+	color: #ffcc00;
+}
+
+/* ------------ END REGISTRATION / LOG IN ------------*/
+
+.coat-img {
+	display: block;
+	width: 201px;
+	height: 101px;
+	background: url("../img/coat_sprite.png") transparent no-repeat;
+	background-size: 202px 202px;
+	background-position: 0px -101px;
+	position: relative;
+}
+
+.header-logo div.coat-img:hover {
+	cursor: pointer;
+}
+
+.coat-img:after {
+    content: "";
+    background: url("../img/coat_sprite.png") transparent no-repeat;
+    background-size: 202px 202px;
+    background-position: 0px 1px;
+    opacity: 0;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    -moz-transition: opacity .5s ease-in;
+    -webkit-transition: opacity .5s ease-in;
+    -o-transition: opacity .5s ease-in;
+    -ms-transition: opacity .5s ease-in;
+    transition: opacity .5s ease-in;
+}
+.coat-img:hover:after {
+    opacity: 1;
+}
+
+/* BEGIN TOGGLE CLASSES */
+.b-toggle {
+    opacity: 0;
+    max-height: 0;
+    -moz-transition: opacity .3s, max-height .3s;
+    -ms-transition: opacity .3s, max-height .3s;
+    transition: opacity .3s, max-height .3s;
+    _display: none;
+    visibility: hidden;
+}
+.expanded {
+    max-height: 100%;
+    opacity: 1;
+    _display: block;
+    visibility: visible;
+}
+
+/* END TOGGLE CLASSES */
+
+/*---------------------------------------------*/
+/*---------- BEGIN MAIN MENU CLASSES ----------*/
+/*---------------------------------------------*/
+
+.main-menu {
+	width: 860px;
+	float: left;
+	margin-top: 25px;
+	z-index: 900;
+}
+
+.main-menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	z-index: 900;
+
+	position: relative;
+}
+
+.main-menu li {
+	display: inline-block;
+	margin-right: 21px;
+	vertical-align: top;
+	font-family: "Trebuchet MS";
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 24px;
+	position: relative;
+	z-index: 900;
+}
+
+.main-menu li:last-child {
+	margin-right: 0;
+}
+
+.main-menu a {
+	color: #000;
+	text-decoration: none;
+}
+
+.main-menu a:hover {
+	color: #ffeb3b;
+}
+
+.main-menu a:after {
+	display: block;
+	content: "";
+	height: 2px;
+	width: 0%;
+	background-color: #ffeb3b;
+	transition: width .3s ease-in-out;
+}
+
+.main-menu a:hover:after,
+.main-menu a:focus:after {
+	width: 100%;
+}
+
+.main-menu a:active {
+	opacity: 0.3;
+	text-decoration: none;
+}
+
+/*----- BEGIN MAIN MENU ANIMATION CLASSES -----*/
+
+.main-menu ul {
+    display: inline-block;
+    width: 100%;
+    margin: 0px auto;
+    padding: 0;
+
+    box-shadow:0 0px 0px rgba(0,0,0, .5);
+    -moz-box-shadow:0 0px 0px rgba(0,0,0, .5);
+    -webkit-box-shadow:0 0px 0px rgba(0,0,0, .5);
+}
+.main-menu ul li {
+    position: relative;
+}
+.main-menu ul a {
+    display: block;
+}
+
+/* drop down */
+.main-menu ul li:hover > ul {
+    opacity: 1;
+    visibility: visible;
+}
+.main-menu ul ul {
+    opacity: 0;
+    visibility: hidden;
+    padding: 0;
+    width: 175px;
+    position: absolute;
+}
+.main-menu ul ul li {
+    float: none;
+    margin: 0;
+}
+
+.main-menu ul ul ul {
+    left: 180px;
+    top: 0px;
+}
+
+/* GOOG STARTS */
+
+.main-menu ul li a {
+	-moz-transition: 0.3s;
+	-o-transition: 0.3s;
+	-webkit-transition: 0.3s;
+    display: block;
+    line-height: 35px;
+    padding: 5px 0px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.main-menu ul li:hover > a {
+	color: #ffeb3b;
+}
+
+
+.main-menu ul li:hover ul.submenu {
+	height: auto;
+	width: 180px;
+}
+
+.main-menu ul ul li {
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    -webkit-transition: 0.3s;
+    opacity: 0;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.main-menu ul li ul li {
+    -moz-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+.main-menu ul li:hover ul li {
+    opacity: 1;
+    -moz-transition-delay: 0.3s;
+    -o-transition-delay: 0.3s;
+    -webkit-transition-delay: 0.3s;
+    transition-delay: 0.3s;
+}
+
+.main-menu ul ul li a {
+    background: rgba(255, 213, 0, 0.5);
+    color: #f5f1cb;
+    line-height: 1px;
+    -moz-transition: 0.9s;
+    -o-transition: 0.9s;
+    -webkit-transition: 0.9s;
+    transition: 0.9s;
+}
+
+.main-menu ul li:hover ul li a {
+    line-height:35px;
+}
+
+.main-menu ul ul li a:hover {
+	color: #2e2600;
+}
+
+/*--------------------------------------------*/
+/*------------- END MENU CLASSES -------------*/
+/*--------------------------------------------*/
+
+.header-top {
+	margin-bottom: 310px;
+}
+
+.header-top::after {
+	display: table;
+	clear: both;
+	content: "";
+}
+
+
+.header-promo {
+	padding: 0;
+	position: relative;
+	margin-bottom: 12px;
+	margin-left: 90px;
+	width: 1130px;
+	background-color: rgba(0, 0, 0, 0.8);
+	border: #c79200 3px solid;
+}
+
+.promo-title {
+	margin-bottom: 5px;
+	font-family: "Trebuchet MS";
+	font-weight: 700;
+	font-size: 36px;
+	line-height: 40px;
+	color: #d1ab00;
+	z-index: 100;
+}
+
+.header-promo p {
+	display: inline-block;
+	width: 100%;
+	margin: 0;
+	margin-bottom: 15px;
+	color: #c79200;
+	font-family: "Tahoma";
+	font-size: 18px;
+	line-height: 30px;
+	text-align: right;
+}
+
+/*---------------------------------------------*/
+/*-------------- WELCOME SECTION --------------*/
+/*---------------------------------------------*/
+.txt-simple p {
+	font-family: "Times New Roman";
+	font-size: 14pt;
+	text-indent: 30px;
+	text-align: justify;
+	margin: 0;
+	margin-bottom: 5px;
+	line-height: 24px;
+}
+
+.welcome-head {
+	margin-top: 10px;
+}
+
+.txt-simple ul li {
+	font-family: "Times New Roman";
+	font-size: 14pt;
+	text-align: justify;
+	margin: 0;
+	margin-bottom: 5px;
+}
+
+.person-img {
+	float: left;
+	margin-right: 30px;
+	border-radius: 50%;
+	border: 7px #0a0a0a solid;
+}
+
+.welcome-head h1 {
+	font-family: "Trebuchet MS";
+	font-style: italic;
+	font-size: 30px;
+}
+
+.welcome-head blockquote {
+    background: none repeat scroll 0 0 #fafafa;
+    border-bottom: 3px dashed #bababa;
+    border-top: 3px dashed #bababa;
+    color: #4e4e4e;
+    font-family: Georgia,serif;
+    font-size: 21px;
+    font-style: italic;
+    line-height: 1.45;
+    padding: 10px 15px;
+    margin-left: 230px;
+    margin-bottom: 40px;
+    text-indent: 50px;
+    text-align: justify;
+    width: 820px;
+}
+
+.postscriptum {
+	font-family: Georgia,serif;
+	padding-top: 50px;
+	font-style: italic;
+	color: #4e4e4e;
+}
+
+p.signature {
+	width: 500px;
+	text-align: right;
+	font-style: italic;
+	float: right;
+}
+
+.signature-float::after {
+	display: table;
+	clear: both;
+	content: "";
+}
+
+h2 {
+	font-family: "Trebuchet MS";
+	font-style: italic;
+	font-size: 21px;
+}
+
+/*---------------------------------------------*/
+/*---------- END WELCOME SECTION --------------*/
+/*---------------------------------------------*/
+
+
+/*----------------------------------------------*/
+/*------------------- FOOTER -------------------*/
+/*----------------------------------------------*/
+
+.main-footer {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: #0a0a0a;
+	color: #fff;
+	font-family: "Tahoma";
+	font-size: 14px;
+
+}
+
+.main-footer .container::after {
+	display: table;
+	clear: both;
+	content: "";
+}
+
+/* --------- FOOTER LOGO --------- */
+
+.footer-logo {
+	display: block;
+	width: 101px;
+	height: 50px;
+	background: url("../img/coat_sprite_footer.png") transparent no-repeat;
+	background-size: 100px 100px;
+	background-position: 0px 0px;
+	position: relative;
+}
+
+/*.footer-logo:hover {
+	cursor: pointer;
+}
+*/
+.footer-logo:after {
+    content: "";
+    background: url("../img/coat_sprite_footer.png") transparent no-repeat;
+    background-size: 100px 100px;
+    background-position: 0px -50px;
+    opacity: 0;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    -moz-transition: opacity .5s ease-in;
+    -webkit-transition: opacity .5s ease-in;
+    -o-transition: opacity .5s ease-in;
+    -ms-transition: opacity .5s ease-in;
+    transition: opacity .5s ease-in;
+}
+.footer-logo:hover:after {
+    opacity: 1;
+}
+
+/* ------- END FOOTER LOGO ------- */
+
+.footer-address {
+	float: left;
+	width: auto;
+	margin-right: 10px;
+}
+
+.footer-address .logo {
+	float: none;
+	padding-top: 8px;
+	display: inline-block;
+	width: 100px;
+}
+
+.footer-text p {
+	display: inline-block;
+}
+
+.footer-text p:first-child {
+	margin-right: 75px;
+}
+
+.footer-text p:last-child {
+	font-size: 12px;
+	text-align: right;
+	float: right;
+	margin-top: 35px;
+	color: #696969;
+}
+
+/*----------------------------------------------*/
+/*----------------- END FOOTER -----------------*/
+/*----------------------------------------------*/
+
+
+/*-----------------------------------------------*/
+/*------------------- HEADERS -------------------*/
+/*-----------------------------------------------*/
+
+.sec-header {
+	margin-bottom: 15px;
+	background-color: #000;
+	background-position: center 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.news-header {
+	padding-top: 5px;
+	padding-bottom: 10px;
+	background-color: #e6e6e6;
+	z-index: 0;
+}
+
+.history-header {
+	padding: 5px 0 15px 0;
+	/*background-image: url("../img/history/history-title.jpg");*/
+}
+
+.library-header {
+	padding: 5px 0 40px 0;
+	background-image: url("../img/stack-of-books.jpg");
+}
+
+.sports-header {
+	padding: 5px 0 40px 0;
+	background-image: url("../img/sport/sport.jpg");
+}
+
+.via-header {
+	padding: 5px 0 40px 0;
+	background-image: url("../img/via/bg-guitar.jpg");
+}
+
+.contacts-header {
+	padding: 5px 0 100px 0;
+	background-image: url("../img/contacts/contacts.jpg");
+}
+
+.sec-header p {
+	font-family: "Trebuchet MS";
+	font-weight: 700;
+	font-size: 36px;
+	color: #fff;
+	line-height: 40px;
+	z-index: 100;
+	text-shadow: #000000 0 0 3px;
+}
+
+/*------------------------------------------------*/
+/*----------------- END HEADERS ------------------*/
+/*------------------------------------------------*/
+
+/*.open:checked ~ .library-header {
+    margin-top: 110px;
+}*/
+
+/* ------------ SONG ------------ */
+
+.txt-song {
+	background: rgba(255, 255, 255, 0.8);
+	width: 50%;
+	padding: 5px 10px;
+	margin: 0 auto;
+	font-family: "Trebuchet MS";
+	font-style: italic;
+	text-align: center;
+}
+
+.txt-song p {
+	margin: 0 0 5px 0;
+}
+
+p.txt-song-title {
+	font-style: normal;
+	font-weight: bolder;
+	font-size: 21px;
+}
+
+p.txt-song-author {
+	font-style: normal;
+	margin-bottom: 30px;
+}
+
+p.txt-song-couplet-num {
+	color: #333333;
+	margin: 0;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.txt-song-chorus {
+	display: block;
+	border-top:		2px #333333 solid;
+	border-bottom:	2px #333333 solid;
+	color: #333333;
+	width: 50%;
+	margin: 0 auto;
+}
+
+/* ---------- END SONG ---------- */
+
+/* ------------ SECTIONS ------------ */
+.sec {
+	background-color: #000;
+	background-position: center 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.sec-lib-anthem {
+	padding: 10px 0;
+	background-image: url("../img/bg-books.jpg");
+}
+
+.sec-sport {
+	margin-top: 15px;
+	background-image: url("../img/sport/bg-sport-hall.jpg");
+}
+
+/* ________ HISTORY SECTIONS _____*/
+.sec-history {
+	width: 100%;
+	position: absolute;
+	padding: 30px 0;
+	z-index: 10;
+}
+
+.sec-1st {
+	top: 900px;
+	border-top: 3px #000 double;
+	border-bottom: 3px #000 double;
+	background-image: url("../img/history/Kazanskaya.jpg");
+}
+
+.sec-2nd {
+	padding-bottom: 630px;
+	padding-top: 0;
+	background-attachment: scroll;
+	top: 2200px;
+	/*color: #fff;*/ /* white = #fff */
+	border-top: 3px #000 double;
+	border-bottom: 3px #000 double;
+	background-color: rgba(255, 255, 255, 0.35);
+	background-image: url("../img/history/patronny-zavod.png");
+}
+
+.sec-3rd {
+	/*padding-bottom: 630px;*/
+	/*padding-top: 0;*/
+	/*background-attachment: scroll;*/
+	top: 4100px;
+	color: #000; /* white = #fff */
+	border-top: 3px #000 double;
+	border-bottom: 3px #000 double;
+	background-color: rgba(255, 255, 255, 0.6);
+}
+
+.sec-4th {
+	top: 5500px;
+	color: #000; /* white = #fff */
+	border-top: 3px #000 double;
+	border-bottom: 3px #000 double;
+	background-color: rgba(255, 255, 255, 0.6);
+}
+
+.sec-1st .container {
+	padding-top:    5px;
+	padding-bottom: 5px;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+.sec-2nd .container {
+	padding: 0;
+	background-color: transparent;
+}
+
+/* ________ END HISTORY SECTIONS _*/
+
+/* ---------- END SECTIONS ---------- */
+
+.txt-simple-wide p {
+	line-height: 28px;
+	margin-bottom: 10px;
+}
+
+.txt-simple h1 {
+	font-family: "Trebuchet MS";
+	font-weight: 700;
+	font-size: 32px;
+	color: #000;
+	line-height: 36px;
+	z-index: 100;
+}

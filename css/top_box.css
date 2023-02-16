@@ -1,0 +1,141 @@
+@charset  "UTF-8";
+/*
+* Выдвигающаяся верхняя панель
+* исключительно средствами CSS
+* работает на скрытых чекбоксах(checkbox)
+*
+* автор: @dobrovoi dbmast.ru
+*/
+
+
+/* ------------ IMPROVEMENTS ------------*/
+
+.main-menu a {
+    color: #fff;
+}
+
+.header-top .main-menu {
+    margin-top: 16px;
+}
+
+.main-menu ul ul li a {
+    background: #424242;
+}
+
+.main-menu ul ul li a:hover {
+    color: #ffeb3b;
+}
+
+.rg-top-left {
+    padding: 0; margin: 0;
+    position: absolute;
+    margin-left: 7px;
+    padding-top: 30px;
+    background-color: #000;
+}
+
+.reg-bg p {
+    margin-top: 0;
+}
+
+/* ---------- END IMPROVEMENTS ----------*/
+
+/*  ===== Выдвигающаяся верхняя панель
+*   =========================================
+*   Базовый контейнер выдвижной панели */
+.top-panel {
+    background: #363636;
+    position: fixed;
+    z-index: 900;
+    top: -95px;
+    left: 0;
+    width: 100%;
+    height: 95px;
+    padding: 0;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    transition: top 400ms cubic-bezier(0.17,0.04,0.03,0.94);
+}
+/* Блок сообщения */
+.message {
+    color: #fff;
+    height: 70px;
+    z-index: 0;
+    font-weight: 300;
+    position: relative;
+    padding: 0.5em 0em;
+    margin: 0 auto;
+    max-width: 980px;
+}
+
+.top-panel-logo {
+    display: block;
+    float: right;
+    width: 159px;
+    height: 80px;
+    background: url("../img/coat_sprite_footer.png") transparent no-repeat;
+    background-size: 159px 159px;
+    background-position: 0px 0px;
+    position: relative;
+}
+
+/* Переключатель панели */
+label.btn {
+    display: block;
+    position: fixed;
+    right: 50px;
+    top: 0;
+    cursor: pointer;
+    background: #363636;
+    width: 50px;
+    border-radius: 0 0 5px 5px;
+    padding: 8px 5px 5px 5px;
+    color: #fff;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
+    transition: all 400ms cubic-bezier(0.17,0.04,0.03,0.94);
+    /*transition: 0.3s;*/
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    z-index: 700;
+}
+/* Переключатель при наведении */
+label.btn:hover {
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15)
+}
+/* Стрелка переключателя вниз */
+label.btn:after {
+    content: "\2261";
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0;
+    text-decoration: inherit;
+}
+/* Активация панели */
+.open:checked ~ .top-panel {
+    top: 0;
+}
+
+.open:checked ~ label.btn {
+    top: 95px;
+}
+/* Смещение контейнера контента страницы */
+.open:checked ~ header {
+    margin-top: 95px;
+    transition: all 400ms cubic-bezier(0.17,0.04,0.03,0.94);
+}
+
+.open ~ header {
+    transition: all 400ms cubic-bezier(0.17,0.04,0.03,0.94);
+}
+
+/* Цвет переключателя при клике */
+.open:checked + label.btn {
+    background: #008000;
+}
+/* Стрелка переключателя вверх*/
+/*.open:checked + label.btn:after {
+    content: '\f077';
+    font: normal 18px/1 FontAwesome
+}*/
