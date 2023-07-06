@@ -1,3 +1,7 @@
+<?php 
+require "db.php";
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -13,8 +17,13 @@
 					<div class="header-logo">
 						<div class="coat-img" onclick="toggle();"></div>
 						<span class="reg-bg">
-							<p><a href="#">Регистрация</a></p>
-							<p><a href="#">Вход</a></p>
+							<?php if (isset($_SESSION['logged_user']) ) : ?>
+								<p><?php echo $_SESSION['logged_user']->login ?></p>
+								<a href="/logout.php">Выйти</a>
+							<?php else : ?>
+								<p><a href="signup.php">Регистрация</a></p>
+								<p><a href="login.php">Вход</a></p>
+							<?php endif; ?>
 						</span>
 					</div>
 					<nav class="main-menu">
@@ -77,7 +86,7 @@
 					<div class="promo-title">
 						Колледж технологий автотранспорта и машиностроения<br>Луганского государственного универститета <br>имени Тараса&nbsp;Шевченко
 					</div>
-					<p><em>Мастерство, проверенное </em>временем. <br>Основано в 1823 году.</p>
+					<p><em>Мастерство, проверенное </em>временем. <br>Основан в 1823 году.</p>
 				</div>
 			</div>
 		</header>
