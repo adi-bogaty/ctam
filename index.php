@@ -12,7 +12,7 @@ require "db.php";
 
 	<body onload="hide_menu_onload()">
 		<header class="main-header">
-			<div class="container">
+			<div class="in-container">
 				<div class="header-top">
 					<div class="header-logo">
 						<div class="coat-img" onclick="toggle();"></div>
@@ -26,19 +26,21 @@ require "db.php";
 							<?php endif; ?>
 						</span>
 					</div>
+
+<!-- https://html5css.ru/howto/howto_js_accordion.php -->
 					<nav class="main-menu">
 						<ul>
 							<li><a href="index.php" style="color: #fad201; text-shadow: #000000 0 0 3px;">Главная</a></li>
-							<li><a href="news.php">Новости</a></li>
+							<li><a href="news.php" class="title-submenu">Новости</a></li>
 							<li>
-								<a href="for_incoming.php">Поступающим</a>
+								<a href="for_incoming.php" class="title-submenu">Поступающим</a>
 								<ul class="submenu">
 									<li><a href="occupation_list.php">Перечень профессий</a></li>
 									<li><a href="committee.php">Приёмная комиссия</a></li>
 								</ul>
 							</li>
 							<li>
-								<a href="forstudents.php">Учащимся</a>
+								<a href="forstudents.php" class="title-submenu">Учащимся</a>
 								<ul class="submenu">
 									<li>
 										<a href="leisure.php">Досуг</a>
@@ -53,7 +55,7 @@ require "db.php";
 								</ul>
 							</li>
 							<li>
-								<a href="teaching_stuff.php">Педколлектив</a>
+								<a href="teaching_stuff.php" class="title-submenu">Педколлектив</a>
 								<ul class="submenu">
 									<li><a href="teaching_stuff.php#admins">Администрация</a></li>
 									<li><a href="teaching_stuff.php#masters">Мастера ПО</a></li>
@@ -62,7 +64,7 @@ require "db.php";
 								</ul>
 							</li>
 							<li>
-								<a href="about.php">О нас</a>
+								<a href="about.php" class="title-submenu">О нас</a>
 								<ul class="submenu">
 									<li><a href="contacts.php">Контакты</a></li>
 									<li><a href="history.php">История</a></li>
@@ -70,7 +72,7 @@ require "db.php";
 								</ul>
 							</li>
 							<li>
-								<a href="media.php">Фото/видео</a>
+								<a href="media.php" class="title-submenu">Фото/видео</a>
 								<ul class="submenu">
 									<li><a href="photos.php">Фото</a></li>
 									<li><a href="videos.php">Видео</a></li>
@@ -78,11 +80,58 @@ require "db.php";
 							</li>
 						</ul>
 					</nav>
+
+					<nav class="accordion-menu">
+						<button class="accordion accordion-empty"><a href="index.php">Главная</a></button>
+
+						<button class="accordion accordion-empty"><a href="news.php">Новости</a></button>
+						
+						<button class="accordion"><a href="for_incoming.php">Поступающим</a></button>
+						<div class="panel">
+							<button class="accordion accordion-empty"><a href="occupation_list.php">Перечень профессий</a></button>
+							<button class="accordion accordion-empty"><a href="committee.php">Приёмная комиссия</a></button>
+						</div>
+
+						<button class="accordion"><a href="forstudents.php">Учащимся</a></button>
+						<div class="panel">
+							<button class="accordion"><a href="leisure.php" class="title-submenu">Досуг</a></button>
+							<div class="panel">
+								<button class="accordion accordion-empty"><a href="library.php">Библиотека</a></button>
+								<button class="accordion accordion-empty"><a href="sports.php">Спортивные секции</a></button>
+								<button class="accordion accordion-empty"><a href="via.php">ВИА</a></button>
+							</div>		
+							<button class="accordion accordion-empty"><a href="timetable.php">Расписание занятий</a></button>
+							<button class="accordion accordion-empty"><a href="timetable.php#bell">Расписание звонков</a></button>
+							<!-- <button class="accordion"></button>
+							<button class="accordion"></button> -->
+						</div>
+
+						<button class="accordion"><a href="teaching_stuff.php" class="title-submenu">Педколлектив</a></button>
+						<div class="panel">
+							<button class="accordion accordion-empty"><a href="teaching_stuff.php#admins">Администрация</a></button>
+							<button class="accordion accordion-empty"><a href="teaching_stuff.php#masters">Мастера ПО</a></button>
+							<button class="accordion accordion-empty"><a href="teaching_stuff.php#teachers">Преподаватели</a></button>
+							<button class="accordion accordion-empty"><a href="teaching_stuff.php#specialists">Специалисты</a></button>
+						</div>
+
+						<button class="accordion"><a href="about.php">О нас</a></button>
+						<div class="panel">
+							<button class="accordion accordion-empty"><a href="contacts.php">Контакты</a></button>
+							<button class="accordion accordion-empty"><a href="history.php">История</a></button>
+							<button class="accordion accordion-empty"><a href="symbolics.php">Символика и гимн</a></button>
+						</div>
+
+						<button class="accordion"><a href="media.php">Фото/видео</a></button>
+						<div class="panel">
+							<button class="accordion accordion-empty"><a href="photos.php">Фото</a></button>
+							<button class="accordion accordion-empty"><a href="videos.php">Видео</a></button>
+						</div>
+					</nav>
 				</div>
 			</div>
 
 			<div class="header-promo">
-				<div class="container">
+				<div class="in-container">
 					<div class="promo-title">
 						Колледж технологий автотранспорта и машиностроения<br>Луганского государственного универститета <br>имени Тараса&nbsp;Шевченко
 					</div>
@@ -92,11 +141,14 @@ require "db.php";
 		</header>
 
 		<section class="txt-simple">
-			<div class="container">
+			<div class="in-container">
 				<div class="welcome-head">
 					<img src="img/director.png" alt="Директор колледжа — Шемет В. А." title="Директор колледжа, Шемет В. А" class="person-img" width="200px">
-					<h1>Дорогие друзья!</h1>
-					<blockquote>Добро пожаловать на сайт обособленного подразделения «Колледж технологий автотранспорта и машиностроения Луганского государственного университета имени Тараса&nbsp;Шевченко» &mdash; <strong>старейшего профессионального  учебного заведения Донбасса</strong>.</blockquote>
+					<div class="sub-welcome-head">
+						<h1>Дорогие друзья!</h1>
+						<img src="img/director.png" alt="Директор колледжа — Шемет В. А." title="Директор колледжа, Шемет В. А" class="person-sub-img" width="200px">
+						<blockquote>Добро пожаловать на сайт обособленного подразделения «Колледж технологий автотранспорта и машиностроения Луганского государственного университета имени Тараса&nbsp;Шевченко» &mdash; <strong>старейшего профессионального  учебного заведения Донбасса</strong>.</blockquote>
+					</div>
 				</div>
 				<p>На страницах нашего сайта мы Вас познакомим с историей нашего учебного заведения, педагогическим коллективом, нашими учащимися и выпускниками.</p>
 				<p>Наш коллектив &mdash; это сплав опыта, мудрости старшего поколения педагогов, с жаждой и творческой энергией молодых специалистов. В настоящее время в колледже беззаветно трудятся инженерно-педагогические работники  в лице мастеров производственного обучения и преподавателей. Всегда на своих трудовых местах работают администрация, технический и административно-хозяйственный персонал.</p>
@@ -117,7 +169,7 @@ require "db.php";
 
 
 		<footer class="main-footer">
-			<div class="container">
+			<div class="in-container">
 				<div class="footer-address">
 					<div class="logo">
 						<div class="footer-logo">
@@ -126,7 +178,7 @@ require "db.php";
 				</div>
 				<div class="footer-text">
 					<p>91055, г. Луганск,<br>ул. Шеремета, 7</p>
-					<p>&copy; Колледж технологий автотранспорта и машиностроения <br>Луганского государственного университета имени Тараса&nbsp;Шевченко</p>
+					<p class="footer-college-name">&copy; Колледж технологий автотранспорта и машиностроения <br>Луганского государственного университета имени Тараса&nbsp;Шевченко</p>
 					<p>Все права защищены, 2016</p>
 					<!-- <p>&copy; Кожевников&nbsp;А.&nbsp;И., 2016</p> -->
 				</div>
